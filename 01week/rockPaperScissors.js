@@ -9,11 +9,12 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 	// Write code here
-	// new RegExp("\\s", "g", "i");
-	hand1 = hand1.replace(/\s/gi).toLowerCase();
-	hand2 = hand2.replace(/\s/gi).toLowerCase();
-
-	if (hand1 == "scissor" && hand2 == "paper") {
+	// hand1 = hand1.trim().toLowerCase();
+	// hand2 = hand2.trim().toLowerCase();
+	hand1 = hand1.replace(/\s/gi, "").toLowerCase();
+	hand2 = hand2.replace(/\s/gi, "").toLowerCase();
+	console.log(hand1, hand2);
+	if (hand1 == "scissors" && hand2 == "paper") {
 		return "Hand one wins!";
 	}
 	if (hand1 == "rock" && hand2 == "scissors") {
@@ -30,15 +31,6 @@ function rockPaperScissors(hand1, hand2) {
 	if (hand1 == "rock" && hand2 == "paper") {
 		return "Hand two wins!";
 	}
-	// if (hand1 == "rOcK" && hand2 == " paper ") {
-	// 	return "Hand two wins!";
-	// }
-	// if (hand1 == "Paper" && hand2 == "SCISSORS") {
-	// 	return "Hand two wins!";
-	// }
-	// if (hand1 == "rock " && hand2 == "sCiSsOrs") {
-	// 	return "Hand one wins!";
-	// }
 	if (hand1 == hand2) {
 		return "It's a tie!";
 	} else {
