@@ -10,19 +10,22 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 	// Your code here
 	// Remove white space and convert to lower case
-	word = word.toLowerCase();
+	var word = word.toLowerCase();
 	const vowel = ["a", "e", "i", "o", "u"];
-	result = word.split("");
+	let result = word.split("");
+	console.log(word);
 
 	if (vowel.includes(word[0])) {
-		return word + "yay";
+		return (word += "yay");
+		console.log(word);
 	} else {
 		for (var i = 0; i < word.length; i++)
 			if (!vowel.includes(word[i])) {
 				result.push(result.shift());
 			} else {
 				result.push("ay");
-				return result.join("");
+				return result.toLowerCase().join("");
+				console.log(result);
 			}
 	}
 }
