@@ -10,46 +10,22 @@ const rl = readline.createInterface({
 function pigLatin(word) {
 	// Your code here
 	// Remove white space and convert to lower case
-	var word = word.toLowerCase();
+	var word = word.replace(/\s/gi, "").toLowerCase();
 	const vowel = ["a", "e", "i", "o", "u"];
 	let result = word.split("");
-	console.log(word);
 
 	if (vowel.includes(word[0])) {
 		return (word += "yay");
-		console.log(word);
 	} else {
 		for (var i = 0; i < word.length; i++)
 			if (!vowel.includes(word[i])) {
 				result.push(result.shift());
 			} else {
 				result.push("ay");
-				return result.toLowerCase().join("");
-				console.log(result);
+				return result.join("");
 			}
 	}
 }
-
-// i = word.split("");
-// i.push(i.splice(0,1)+"ay");
-// word=i.join('');
-// return word
-// pigLatin('car') //=> 'arcay'
-// // pigLatin('create') //=> 'eatecray'
-// // pigLatin('pony') //=> 'onypay'
-// // pigLatin('egg') //=> 'eggyay'
-
-// // identify what a vowel is
-// const vowel = ["a", "e". "i", "o", "u"]
-
-// // create a for loop
-//   // if statment to add yay if the first letter is a vowel
-//   // else if statment to add ay to the
-// // have each letter moved to the back of the string until a vowel is the first letter. Using push()
-// // for loop to run the length of vowel
-// for (var i = 0, i <= vowel.length, i++){
-//   if(word == )
-// }
 
 function getPrompt() {
 	rl.question("word ", answer => {
@@ -57,7 +33,6 @@ function getPrompt() {
 		getPrompt();
 	});
 }
-
 // Tests
 
 if (typeof describe === "function") {
