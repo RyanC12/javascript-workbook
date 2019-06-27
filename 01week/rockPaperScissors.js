@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 
 function rockPaperScissors(hand1, hand2) {
 	// Write code here
+	// case insensitive and remove white space
 	// hand1 = hand1.trim().toLowerCase();
 	// hand2 = hand2.trim().toLowerCase();
 	hand1 = hand1.replace(/\s/gi, "").toLowerCase();
