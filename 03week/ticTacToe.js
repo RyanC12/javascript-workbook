@@ -21,7 +21,7 @@ function printBoard() {
 
 function horizontalWin() {
 	// Your code here
-	for (i = 0; i <= board.length; i++) {
+	for (let i = 0; i <= board.length; i++) {
 		if (board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") {
 			console.log("X wins");
 		}
@@ -44,54 +44,94 @@ function horizontalWin() {
 
 function verticalWin() {
 	// Your code here
-	if (board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") {
-		console.log("X wins");
-	}
-	if (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") {
-		console.log("X wins");
-	}
-	if (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") {
-		console.log("X wins");
-	} else if (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O") {
-		console.log("O wins");
-	}
-	if (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O") {
-		console.log("O wins");
-	}
-	if (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O") {
-		console.log("O wins");
-	} else {
-		diagonalWin();
+	for (let i = 0; i <= board.length; i++) {
+		if (board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") {
+			console.log("X wins");
+		}
+		if (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X") {
+			console.log("X wins");
+		}
+		if (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X") {
+			console.log("X wins");
+		} else if (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O") {
+			console.log("O wins");
+		}
+		if (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O") {
+			console.log("O wins");
+		}
+		if (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O") {
+			console.log("O wins");
+		}
 	}
 }
 
 function diagonalWin() {
 	// Your code here
-	if (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") {
-		console.log("X wins");
-	}
-	if (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") {
-		console.log("X wins");
-	} else if (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") {
-		console.log("O wins");
-	}
-	if (board[0][2] == "O" && board[1][1] == "X" && board[2][0] == "O") {
-		console.log("O wins");
-	} else {
-		checkForWin();
+	for (let i = 0; i <= board.length; i++) {
+		if (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") {
+			console.log("X wins");
+		}
+		if (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") {
+			console.log("X wins");
+		} else if (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") {
+			console.log("O wins");
+		}
+		if (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") {
+			console.log("O wins");
+		}
 	}
 }
 
 function checkForWin() {
+	// horizontalWin();
+	// verticalWin();
+	// diagonalWin();
 	if (horizontalWin() == true) {
-		return horizontalWin();
+		console.log("horizontal wins");
 	} else if (verticalWin() == true) {
-		return verticalWin();
+		console.log("vertical wins");
 	} else if (diagonalWin() == true) {
-		return diagonalWin();
+		console.log("diagonal wins");
+	} else {
+		getPrompt();
 	}
 	// Your code here
 	//horizontal, vert, diag
+}
+// function marker(row, column) {
+// 	if (row == 0 && column == 0) {
+// 		board[0][0] = playerTurn;
+// 		return;
+// 	}
+// }
+// function switchPlayer() {
+// 	if (playerTurn === "X") {
+// 		playerTurn = "O";
+// 	} else {
+// 		playerTurn = "X";
+// 	}
+// }
+
+function isSpotValid() {
+	// check if slot is available
+	if (board[0][0] == "X" || "O") {
+	}
+	if (board[0][1] == "X" || "O") {
+	}
+	if (board[0][2] == "X" || "O") {
+	}
+	if (board[1][0] == "X" || "O") {
+	}
+	if (board[1][1] == "X" || "O") {
+	}
+	if (board[1][2] == "X" || "O") {
+	}
+	if (board[2][0] == "X" || "O") {
+	}
+	if (board[2][1] == "X" || "O") {
+	}
+	if (board[2][2] == "X" || "O") {
+	}
 }
 
 function ticTacToe(row, column) {
@@ -101,7 +141,49 @@ function ticTacToe(row, column) {
 	// is valid(place x or o)
 	// check for win
 	// switch player
+
+	checkForWin();
+
+	if (row == 0 && column == 0) {
+		board[0][0] = playerTurn;
+	}
+	if (row == 0 && column == 1) {
+		board[0][1] = playerTurn;
+	}
+	if (row == 0 && column == 2) {
+		board[0][2] = playerTurn;
+	}
+	if (row == 1 && column == 0) {
+		board[1][0] = playerTurn;
+	}
+	if (row == 1 && column == 1) {
+		board[1][1] = playerTurn;
+	}
+	if (row == 1 && column == 2) {
+		board[1][2] = playerTurn;
+	}
+	if (row == 2 && column == 0) {
+		board[2][0] = playerTurn;
+	}
+	if (row == 2 && column == 1) {
+		board[2][1] = playerTurn;
+	}
+	if (row == 2 && column == 2) {
+		board[2][2] = playerTurn;
+	}
+	if (playerTurn === "X") {
+		playerTurn = "O";
+	} else {
+		playerTurn = "X";
+	}
+	if (checkForWin() == true) {
+		return;
+	}
 }
+
+// function isNotValid() {
+// 	// if (board[][] == "X" || board[][] == "O")
+// }
 
 // isValidSpace() is the move allowed
 // inNotValid()
