@@ -110,15 +110,15 @@ function diagonalWin() {
 function checkForWin() {
 	// check to see if win conditions are true, if conditions are true reset the board
 	if (horizontalWin() == true) {
-		console.log("horizontal wins");
+		console.log(playerTurn + " wins");
 		resetBoard();
 		return true;
 	} else if (verticalWin() == true) {
-		console.log("vertical wins");
+		console.log(playerTurn + " wins");
 		resetBoard();
 		return true;
 	} else if (diagonalWin() == true) {
-		console.log("diagonal wins");
+		console.log(playerTurn + " wins");
 		resetBoard();
 		return true;
 	} else {
