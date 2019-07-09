@@ -1,0 +1,46 @@
+#pigLatin {
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	grid-column: 1fr 1fr;
+	grid-row: 1fr 2fr 1fr;
+	grid-template-areas:
+		"h1 h1"
+		"input output"
+		"button  .";
+	background-color: saddlebrown;
+}
+h1 {
+	grid-area: h1;
+	font-size: 60px;
+	text-align: center;
+	margin: auto;
+}
+#input {
+	width: 500px;
+	height: 300px;
+	grid-area: input;
+	border: solid black 1px;
+	margin: auto;
+	background-color: chocolate;
+	text-align: center;
+}
+p {
+	width: 500px;
+	height: 300px;
+	grid-area: output;
+	border: solid black 1px;
+	margin: auto;
+	background-color: chocolate;
+	text-align: center;
+}
+#button {
+	width: 200px;
+	height: 40px;
+	font: black;
+	text-align: center;
+	margin-top: -15px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: chocolate;
+}
