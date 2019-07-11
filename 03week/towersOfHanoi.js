@@ -36,22 +36,24 @@ function restart() {
 		c: []
 	};
 }
+function validMove() {
+	if (startStack == "a" || "b" || ("c" && endStack == "a") || "b" || "c") {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 function isLegal(startStack, endStack) {
 	// Your code here
 
-	// const starting = stacks[start];
-	// const ending = stacks[end];
-	// return (
-	//   (starting[starting.length - 1] < ending[ending.length - 1] ||
-	//     ending.length == 0) &&
-	//   starting.length != 0
-	// );
 	let start = stacks[startStack];
 	let end = stacks[endStack];
+	// check to see number being moved by startStack is greater than the last number in the array being chose by endStack
 	if (
 		start[start.length - 1] < end[end.length - 1] ||
 		(start.length != 0 && end.length == 0)
+		// check if startStack has an item in the array and allowing the move be made to an empty array
 	) {
 		return true;
 	} else {
@@ -72,17 +74,16 @@ function checkForWin() {
 
 function towersOfHanoi(startStack, endStack) {
 	// Your code here
-	// if (startStack && endStack) {
 	if (isLegal(startStack, endStack) == true) {
 		movePiece(startStack, endStack);
 		if (checkForWin() == true) {
+			console.log("Winner");
 			restart();
 		}
 	} else {
 		console.log("Move is not legal");
 	}
 }
-// }
 
 function getPrompt() {
 	printStacks();
