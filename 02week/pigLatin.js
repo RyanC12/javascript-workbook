@@ -1,31 +1,40 @@
-"use strict";
 
-const assert = require("assert");
-const readline = require("readline");
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout
-});
+// "use strict";
+
+// const assert = require("assert");
+// const readline = require("readline");
+// const rl = readline.createInterface({
+// 	input: process.stdin,
+// 	output: process.stdout
+// });
+
+let input = document.getElementById("input");
+let output = document.querySelector("p");
+let btn = document.querySelector("#button");
 
 function pigLatin(word) {
 	// Your code here
+	word = input.value;
 	// Remove white space and convert to lower case
-	var word = word.replace(/\s/gi, "").toLowerCase();
+	word = word.replace(/\s/gi, "").toLowerCase();
 	const vowel = ["a", "e", "i", "o", "u"];
 	let result = word.split("");
 
 	if (vowel.includes(word[0])) {
-		return (word += "yay");
+		word += "yay";
+		console.log((word += "yay"));
 	} else {
 		for (var i = 0; i < word.length; i++)
 			if (!vowel.includes(word[i])) {
 				result.push(result.shift());
-			} else {
 				result.push("ay");
-				return result.join("");
+				break;
+			} else {
 			}
 	}
+	output.innerHTML = result.join("");
 }
+btn.addEventListener("click", pigLatin());
 
 function getPrompt() {
 	rl.question("word ", answer => {
@@ -33,8 +42,8 @@ function getPrompt() {
 		getPrompt();
 	});
 }
-// Tests
 
+// Tests
 if (typeof describe === "function") {
 	describe("#pigLatin()", () => {
 		it("should translate a simple word", () => {
